@@ -29,7 +29,6 @@ For this exercise, don't be concerned about the distinction between container an
 ```
 
 3. Add methods for handling inputs for password and password confirm, and checking that the passwords match. Be sure to update state in these methods using `.setState`
-4. Bind the methods in the constructor.
 5. Display a message if the user's inputs are valid.
 
 ### Bonus
