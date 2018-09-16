@@ -24,20 +24,20 @@ class Validator extends Component {
     event.preventDefault();
 
     const emailCheck = /@./g.test(this.state.email);
-    const passwordCheck = /[a-zA-Z0-9!@#\$%\^&*\)\(+=._-]{7,}$/g.test(this.state.password);
+    const passwordCheck = /^[a-zA-Z0-9!@#\$%\^&*)(+=._-]{7,}$/g.test(this.state.password);
 
     // checks for @ and . in email address
     if (emailCheck === false) {
-      this.setState(prevState => ({ userMsg: 'Not a valid email address.' }));
+      this.setState({ userMsg: 'Not a valid email address.' });
       // checks for at least 7 characters and special characters
     } else if (emailCheck === true && passwordCheck === false) {
-      this.setState(prevState => ({ userMsg: 'Password must be at least 7 characters long and contain a number and one of the following special characters: ! @ # $ % ^ & * ( ) _ + - =', }));
+      this.setState({ userMsg: 'Password must be at least 7 characters long and contain a number and one of the following special characters: ! @ # $ % ^ & * ( ) _ + - =', });
     }
     // checks for matching passwords if the above conditions are met 
     else if (emailCheck === true && passwordCheck === true && this.state.valid === true && (this.state.password === this.state.passwordConfirm)) {
-      this.setState(prevState => ({ userMsg: 'Valid!' }));
+      this.setState({ userMsg: 'Valid!' });
     } else {
-      this.setState(prevState => ({ userMsg: 'Passwords do not match' }));
+      this.setState({ userMsg: 'Passwords do not match' });
     }
   }
 
